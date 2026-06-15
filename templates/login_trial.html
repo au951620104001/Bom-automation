@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RENE-BM | Trial Login</title>
+    <!-- Google Fonts for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .error-msg {
+            color: #ff4b4b;
+            font-size: 0.9rem;
+            background: rgba(255, 75, 75, 0.1);
+            border: 1px solid rgba(255, 75, 75, 0.3);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Background Animated Gradients -->
+    <div class="blob-cont">
+        <div class="yellow blob"></div>
+        <div class="red blob"></div>
+        <div class="green blob"></div>
+    </div>
+
+    <!-- Main Glass Panel -->
+    <div class="glass-panel" style="max-width: 400px;">
+        <div class="header">
+            <h1>RENE-<span>BM</span></h1>
+            <p>Trial Access Portal</p>
+        </div>
+
+        {% if error %}
+        <div class="error-msg">{{ error }}</div>
+        {% endif %}
+
+        <form class="login-form" method="POST" action="{{ url_for('login') }}">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required placeholder="Enter username">
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Enter password" 
+                       style="background: rgba(0, 0, 0, 0.3); border: 1px solid var(--glass-border); color: white; padding: 1rem 1.2rem; border-radius: 12px; font-size: 1rem; outline: none; transition: all 0.3s ease; box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);">
+            </div>
+
+            <button type="submit" class="glow-on-hover" style="margin-top: 10px;">
+                <span class="btn-text">Login to Trial</span>
+            </button>
+        </form>
+    </div>
+
+</body>
+</html>

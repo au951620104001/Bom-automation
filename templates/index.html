@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RENE-BM</title>
+    <!-- Google Fonts for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    
+    <!-- Background Animated Gradients -->
+    <div class="blob-cont">
+        <div class="yellow blob"></div>
+        <div class="red blob"></div>
+        <div class="green blob"></div>
+    </div>
+
+    <!-- Main Glass Panel -->
+    <div class="glass-panel">
+        <div class="header">
+            <h1>RENE-<span>BM</span></h1>
+            <p>Automated Engineering Extraction Engine</p>
+        </div>
+
+        <div class="input-group">
+            <label for="folder-path">PDF Folder Path</label>
+            <input type="text" id="folder-path" placeholder="e.g. C:\Users\thush\Desktop\BOM automation\sample">
+        </div>
+
+        <button id="generate-btn" class="glow-on-hover">
+            <span class="btn-text">Generate Excel</span>
+            <div class="spinner" id="btn-spinner" style="display: none;"></div>
+        </button>
+
+        <!-- Status Message Area -->
+        <div id="status-container" class="status-container">
+            <div class="icon" id="status-icon"></div>
+            <div class="message" id="status-message">Ready to extract.</div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

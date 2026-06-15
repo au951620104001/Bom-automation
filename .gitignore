@@ -1,0 +1,18 @@
+# Python Cache and Compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE/Editor Configs
+.vscode/
+.idea/
+
+# Local generated output files
+master_bom.xlsx
+debug_dump.txt

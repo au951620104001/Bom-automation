@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RENE-BM | Trial Dashboard</title>
+    <!-- Google Fonts for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .upload-zone {
+            border: 2px dashed var(--glass-border);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+        }
+        .upload-zone:hover, .upload-zone.dragover {
+            border-color: #00c6ff;
+            background: rgba(0, 198, 255, 0.05);
+            color: #fff;
+        }
+        #file-input {
+            display: none;
+        }
+        .file-list {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #00c6ff;
+            text-align: left;
+            max-height: 100px;
+            overflow-y: auto;
+        }
+        .logout-link {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            background: var(--glass-bg);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s;
+        }
+        .logout-link:hover {
+            color: white;
+            border-color: #ff4b4b;
+        }
+    </style>
+</head>
+<body>
+    
+    <a href="{{ url_for('logout') }}" class="logout-link">Logout</a>
+
+    <!-- Background Animated Gradients -->
+    <div class="blob-cont">
+        <div class="yellow blob"></div>
+        <div class="red blob"></div>
+        <div class="green blob"></div>
+    </div>
+
+    <!-- Main Glass Panel -->
+    <div class="glass-panel">
+        <div class="header">
+            <h1>RENE-<span>BM</span> <span style="font-size: 1rem; color: #ff00c8; vertical-align: middle;">TRIAL</span></h1>
+            <p>Upload your drawings (.pdf or .CATDrawing)</p>
+        </div>
+
+        <div class="input-group">
+            <div class="upload-zone" id="upload-zone">
+                <div id="upload-prompt">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 10px;">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg><br>
+                    Click or Drag & Drop files here
+                </div>
+                <input type="file" id="file-input" multiple accept=".pdf,.CATDrawing">
+                <div class="file-list" id="file-list"></div>
+            </div>
+        </div>
+
+        <button id="generate-btn" class="glow-on-hover">
+            <span class="btn-text">Generate Excel</span>
+            <div class="spinner" id="btn-spinner" style="display: none;"></div>
+        </button>
+
+        <!-- Status Message Area -->
+        <div id="status-container" class="status-container">
+            <div class="icon" id="status-icon"></div>
+            <div class="message" id="status-message">Ready to extract.</div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='trial_script.js') }}"></script>
+</body>
+</html>
