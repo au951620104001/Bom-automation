@@ -17,8 +17,8 @@ PASSWORD = 'binith123'
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
+        username = request.form.get('username', '').strip()
+        password = request.form.get('password', '').strip()
         
         if username == USERNAME and password == PASSWORD:
             session['logged_in'] = True
