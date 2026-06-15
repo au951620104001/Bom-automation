@@ -1,10 +1,10 @@
 :root {
-    --bg-color: #070c08;
-    --text-primary: #ffffff;
-    --text-secondary: #a0aec0;
-    --accent-glow: rgba(16, 185, 129, 0.5);
-    --glass-bg: rgba(10, 18, 14, 0.55);
-    --glass-border: rgba(255, 255, 255, 0.06);
+    --bg-color: #f8fafc;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --accent-glow: rgba(16, 185, 129, 0.15);
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(0, 0, 0, 0.08);
 }
 
 * {
@@ -45,7 +45,7 @@ body {
 .yellow {
     width: 400px;
     height: 400px;
-    background: #064e3b;
+    background: #a7f3d0;
     top: 10%;
     left: 20%;
 }
@@ -53,7 +53,7 @@ body {
 .red {
     width: 500px;
     height: 500px;
-    background: #022c22;
+    background: #d1fae5;
     bottom: 5%;
     right: 15%;
     animation-delay: -5s;
@@ -62,7 +62,7 @@ body {
 .green {
     width: 300px;
     height: 300px;
-    background: #10b981;
+    background: #6ee7b7;
     top: 40%;
     left: 60%;
     animation-delay: -10s;
@@ -84,7 +84,7 @@ body {
     width: 90%;
     max-width: 600px;
     z-index: 10;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(0, 0, 0, 0.02);
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -129,21 +129,21 @@ body {
     color: var(--text-secondary);
 }
 
-input[type="text"] {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--glass-border);
-    color: white;
+input[type="text"], input[type="password"] {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #cbd5e1;
+    color: #0f172a;
     padding: 1rem 1.2rem;
     border-radius: 12px;
     font-size: 1rem;
     outline: none;
     transition: all 0.3s ease;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);
 }
 
 input[type="text"]:focus, input[type="password"]:focus {
     border-color: #10b981;
-    box-shadow: 0 0 15px rgba(16, 185, 129, 0.3), inset 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.25), inset 0 1px 2px rgba(0,0,0,0.02);
 }
 
 /* Glowing Button */
@@ -231,28 +231,28 @@ input[type="text"]:focus, input[type="password"]:focus {
 .status-container {
     padding: 1rem;
     border-radius: 8px;
-    background: rgba(255,255,255,0.03);
+    background: rgba(0, 0, 0, 0.02);
     border: 1px solid var(--glass-border);
     display: flex;
     align-items: center;
     gap: 12px;
-    opacity: 0.7;
+    opacity: 0.8;
     transition: all 0.3s ease;
 }
 
 .status-container.success {
-    background: rgba(0, 255, 136, 0.1);
-    border-color: rgba(0, 255, 136, 0.3);
+    background: rgba(16, 185, 129, 0.08);
+    border-color: rgba(16, 185, 129, 0.2);
     opacity: 1;
 }
-.status-container.success .message { color: #00ff88; }
+.status-container.success .message { color: #065f46; }
 
 .status-container.error {
-    background: rgba(255, 75, 75, 0.1);
-    border-color: rgba(255, 75, 75, 0.3);
+    background: rgba(239, 68, 68, 0.06);
+    border-color: rgba(239, 68, 68, 0.15);
     opacity: 1;
 }
-.status-container.error .message { color: #ff4b4b; }
+.status-container.error .message { color: #b91c1c; }
 
 .message {
     font-size: 0.95rem;
@@ -261,19 +261,19 @@ input[type="text"]:focus, input[type="password"]:focus {
 
 /* Upload Zone Styles */
 .upload-zone {
-    border: 2px dashed var(--glass-border);
+    border: 2px dashed #cbd5e1;
     border-radius: 12px;
     padding: 3rem 2rem;
     text-align: center;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(248, 250, 252, 0.6);
     cursor: pointer;
     transition: all 0.3s ease;
     color: var(--text-secondary);
 }
 .upload-zone:hover, .upload-zone.dragover {
     border-color: #10b981;
-    background: rgba(16, 185, 129, 0.05);
-    color: #fff;
+    background: rgba(16, 185, 129, 0.03);
+    color: #0f172a;
 }
 #file-input {
     display: none;
@@ -301,8 +301,9 @@ input[type="text"]:focus, input[type="password"]:focus {
     z-index: 100;
 }
 .logout-link:hover {
-    color: white;
+    color: #ff4b4b;
     border-color: #ff4b4b;
+    background: white;
 }
 
 /* Login Form Styles */
@@ -313,10 +314,10 @@ input[type="text"]:focus, input[type="password"]:focus {
     margin-top: 1rem;
 }
 .error-msg {
-    color: #ff4b4b;
+    color: #b91c1c;
     font-size: 0.9rem;
-    background: rgba(255, 75, 75, 0.1);
-    border: 1px solid rgba(255, 75, 75, 0.3);
+    background: rgba(239, 68, 68, 0.06);
+    border: 1px solid rgba(239, 68, 68, 0.15);
     padding: 10px;
     border-radius: 8px;
     text-align: center;
