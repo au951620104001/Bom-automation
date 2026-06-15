@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RENE-BM</title>
+    <title>RENE-BM | Dashboard</title>
     <!-- Google Fonts for modern typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +12,8 @@
 </head>
 <body>
     
+    <a href="{{ url_for('logout') }}" class="logout-link">Logout</a>
+
     <!-- Background Animated Gradients -->
     <div class="blob-cont">
         <div class="yellow blob"></div>
@@ -27,8 +29,18 @@
         </div>
 
         <div class="input-group">
-            <label for="folder-path">PDF Folder Path</label>
-            <input type="text" id="folder-path" placeholder="e.g. C:\Users\thush\Desktop\BOM automation\sample">
+            <div class="upload-zone" id="upload-zone">
+                <div id="upload-prompt">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 10px;">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg><br>
+                    Click or Drag & Drop files here
+                </div>
+                <input type="file" id="file-input" multiple accept=".pdf,.CATDrawing">
+                <div class="file-list" id="file-list"></div>
+            </div>
         </div>
 
         <button id="generate-btn" class="glow-on-hover">

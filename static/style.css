@@ -258,3 +258,66 @@ input[type="text"]:focus {
     font-size: 0.95rem;
     color: var(--text-secondary);
 }
+
+/* Upload Zone Styles */
+.upload-zone {
+    border: 2px dashed var(--glass-border);
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-secondary);
+}
+.upload-zone:hover, .upload-zone.dragover {
+    border-color: #00c6ff;
+    background: rgba(0, 198, 255, 0.05);
+    color: #fff;
+}
+#file-input {
+    display: none;
+}
+.file-list {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #00c6ff;
+    text-align: left;
+    max-height: 100px;
+    overflow-y: auto;
+}
+.logout-link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    background: var(--glass-bg);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s;
+    z-index: 100;
+}
+.logout-link:hover {
+    color: white;
+    border-color: #ff4b4b;
+}
+
+/* Login Form Styles */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+.error-msg {
+    color: #ff4b4b;
+    font-size: 0.9rem;
+    background: rgba(255, 75, 75, 0.1);
+    border: 1px solid rgba(255, 75, 75, 0.3);
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
