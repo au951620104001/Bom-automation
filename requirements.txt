@@ -2,4 +2,4 @@ pdfplumber
 pandas
 openpyxl
 flask
-pywin32
+pywin32; sys_platform == "win32"

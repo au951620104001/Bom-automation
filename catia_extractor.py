@@ -2,8 +2,12 @@ import os
 import glob
 import re
 import pandas as pd
-import win32com.client
-import pythoncom
+try:
+    import win32com.client
+    import pythoncom
+    HAS_WIN32 = True
+except ImportError:
+    HAS_WIN32 = False
 
 def extract_part_info_catia(catia_app, drawing_path):
     filename = os.path.basename(drawing_path)
@@ -240,6 +244,9 @@ def extract_part_info_catia(catia_app, drawing_path):
     return parts
 
 def process_folder_catia(input_dir):
+    if not HAS_WIN32:
+        return None, "CATIA automation is only supported on Windows because it requires the pywin32 library and a local CATIA V5 software installation. It cannot run on a remote server like Vercel."
+
     catdrawing_files = glob.glob(os.path.join(input_dir, '*.CATDrawing'))
     if not catdrawing_files:
         return None, "No .CATDrawing files found in the specified directory."
